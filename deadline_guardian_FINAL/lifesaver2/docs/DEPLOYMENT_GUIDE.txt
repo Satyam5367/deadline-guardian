@@ -1,0 +1,166 @@
+╔══════════════════════════════════════════════════════════╗
+║     DEADLINE GUARDIAN — COMPLETE DEPLOYMENT GUIDE       ║
+║     BlockseBlock Hackathon · Deadline: June 29, 2PM     ║
+╚══════════════════════════════════════════════════════════╝
+
+YOUR SUBMISSION NEEDS 3 THINGS:
+  [1] Deployed App URL
+  [2] GitHub Repo URL  
+  [3] Google Doc URL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 1 — GET GEMINI API KEY (5 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Go to: https://aistudio.google.com/apikey
+2. Sign in with Google account
+3. Click "Create API Key"
+4. Copy the key (AIza...)
+5. Save it somewhere safe
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 2 — TEST LOCALLY (15 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Extract the ZIP file
+
+2. Install dependencies:
+   pip install -r requirements.txt
+
+3. Create .env file:
+   copy .env.example .env
+   (then open .env and paste your API key)
+
+4. Run:
+   python app.py
+
+5. Open: http://localhost:5000
+
+6. Test these features:
+   [ ] Add a task with deadline
+   [ ] Click "⚡ Run Agent" → watch the multi-step loop
+   [ ] Add a 2nd task → agent should auto-replan
+   [ ] Generate schedule
+   [ ] Try voice input (Chrome only)
+   [ ] Run Procrastination AI
+   [ ] Try Calendar Sync
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 3 — PUSH TO GITHUB (10 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Create repo at: github.com/new
+   Name: deadline-guardian
+   Visibility: PUBLIC (required)
+   No template, no README
+
+2. Run these commands in your project folder:
+   git init
+   git add .
+   git commit -m "Initial commit: Deadline Guardian - Agentic AI Productivity System"
+   git branch -M main
+   git remote add origin https://github.com/Satyam5367/deadline-guardian.git
+   git push -u origin main
+
+3. Verify: open the GitHub URL and confirm all files are there
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 4 — DEPLOY TO GOOGLE CLOUD RUN (20 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+METHOD A: Google AI Studio (Recommended — counts for evaluation)
+1. Go to: https://aistudio.google.com
+2. Click "Build" in left sidebar
+3. Choose "Import from GitHub" → connect your repo
+4. Select deadline-guardian repo
+5. Click "Deploy" → "Cloud Run"
+6. Under "Environment variables" → add:
+   Key: GEMINI_API_KEY
+   Value: AIza...your actual key
+7. Click Deploy → wait 3–5 minutes
+8. Copy the HTTPS URL (https://deadline-guardian-xxxx.run.app)
+
+METHOD B: gcloud CLI (if AI Studio deploy fails)
+1. Install gcloud: https://cloud.google.com/sdk/docs/install
+2. Run:
+   gcloud auth login
+   gcloud config set project YOUR_PROJECT_ID
+   gcloud run deploy deadline-guardian \
+     --source . \
+     --region us-central1 \
+     --allow-unauthenticated \
+     --timeout 180 \
+     --set-env-vars GEMINI_API_KEY=AIza...yourkey
+3. Copy the Service URL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 5 — CREATE GOOGLE DOC (15 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Go to: https://docs.google.com
+2. Create New Document
+3. Title: "Deadline Guardian — BlockseBlock Hackathon 2026"
+4. Open: docs/GOOGLE_DOC_CONTENT.md from this project
+5. Copy ALL the content into the Google Doc
+6. Replace:
+   [YOUR_DEPLOYED_URL] → your Cloud Run URL from Step 4
+   [YOUR_GITHUB_URL]   → your GitHub repo URL from Step 3
+
+7. Share settings:
+   Click Share (top right)
+   → "Anyone with the link" → Viewer
+   → Copy link
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 6 — UPDATE README (5 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Open README.md
+2. Replace "YOUR_DEPLOYED_URL_HERE" with your actual URL
+3. git add README.md
+4. git commit -m "Add live demo URL"
+5. git push
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 7 — SUBMIT ON BLOCKSEBLOCK (10 min, before 1PM June 29)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Go to BlockseBlock platform → your hackathon → Submit
+
+Paste these 3 links:
+
+  [1] DEPLOYED APP:
+      https://deadline-guardian-xxxx.run.app
+
+  [2] GITHUB REPO:
+      https://github.com/Satyam5367/deadline-guardian
+
+  [3] GOOGLE DOC:
+      https://docs.google.com/document/d/xxxx/edit?usp=sharing
+
+DONE! ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Problem: Agent returns error / 500
+Fix: Check GEMINI_API_KEY env var in Cloud Run → Logs tab
+
+Problem: "Module not found: agents"
+Fix: Make sure agents/__init__.py exists and is committed
+
+Problem: App loads but agent doesn't respond
+Fix: Cloud Run timeout — ensure --timeout 180 is set (agent loop takes ~15-30s)
+
+Problem: Voice doesn't work
+Fix: Voice only works in Chrome/Edge on HTTPS. Your deployed URL is HTTPS ✓
+
+Problem: Port error locally
+Fix: Set PORT=5000 in your .env file
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DEMO SCRIPT FOR JUDGES (if you get a demo slot)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. "I'll add a task" → add "Submit ML Report" deadline tomorrow
+2. "Now I'll add another urgent one" → add "Fix production bug" deadline in 4 hours
+3. Watch the AGENT PANEL appear automatically → show the step-by-step reasoning
+4. Say: "Most apps just remind you. This agent CALLED 3 tools, detected a conflict,
+   and gave a rescue plan — without me asking."
+5. Go to Procrastination AI → show the pattern profile
+6. Go to AI Agent → type: "Am I going to make these deadlines?" → Run Agent
+7. Show the reasoning steps live: "You can literally watch Gemini thinking"
