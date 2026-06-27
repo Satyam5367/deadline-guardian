@@ -20,8 +20,8 @@ immediately re-evaluates ALL existing tasks, runs cascade analysis to find which
 collide, and proposes a revised priority order — without the user asking. This is what separates
 Deadline Guardian from every other productivity tool.
 
-Live App: [YOUR_DEPLOYED_URL]
-GitHub: [YOUR_GITHUB_URL]
+Live App: [https://deadline-guardian-841w.vercel.app/]
+GitHub: [https://github.com/Satyam5367/deadline-guardian]
 
 ---
 
