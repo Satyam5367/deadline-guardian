@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-**[→ Open Live App](YOUR_DEPLOYED_URL_HERE)**
+**[→ Open Live App](https://deadline-guardian-841w.vercel.app/)**
 
 ---
 
